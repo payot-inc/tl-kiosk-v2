@@ -1,4 +1,4 @@
-// eslint-disable
+/* eslint-disable */
 import { app, BrowserWindow } from 'electron'; // eslint-disable-line
 
 /**
