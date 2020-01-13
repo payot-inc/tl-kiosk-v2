@@ -24,6 +24,7 @@ Vue.prototype.$networkStatus = networkStatusChange;
 
 Vue.prototype.$http = axios.create({
   baseURL: 'http://api.payot-coin.com/kiosk',
+  // baseURL: 'http://192.168.0.119:3000/kiosk',
 });
 
 Vue.use(VueMoment);

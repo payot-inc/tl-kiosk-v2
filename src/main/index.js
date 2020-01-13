@@ -25,6 +25,7 @@ function createWindow() {
   });
 
   mainWindow.loadURL(winURL);
+  mainWindow.setMenu(null);
   mainWindow.webContents.setZoomFactor(1);
   mainWindow.webContents.setVisualZoomLevelLimits(1, 1);
   mainWindow.webContents.setLayoutZoomLevelLimits(0, 0);

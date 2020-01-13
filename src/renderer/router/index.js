@@ -25,7 +25,8 @@ import Finish from '@/views/Finish.vue';
 Vue.use(Router);
 
 const companyLoginValide = (to, from, next) => {
-  if (isEmpty(store.state.kiosk.company.name)) {
+  console.log(store.state.kiosk.company.id);
+  if (!store.state.kiosk.company.id) {
     next({ name: 'login' });
   } else {
     next();
@@ -40,7 +41,7 @@ export default new Router({
       path: '/',
       name: 'main',
       component: Splash,
-      beforeRouerEnter: companyLoginValide,
+      beforeEnter: companyLoginValide,
     },
     {
       path: '/login',

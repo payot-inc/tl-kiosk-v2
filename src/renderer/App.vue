@@ -5,7 +5,7 @@
       <router-view />
     </div>
 
-    <sui-modal v-model="network.open" size="basic" :closable="false">
+    <sui-modal v-model="network.open" :closable="false" :size="'basic'">
       <div class="cont basic">
         <span class="text" style="font-size: 50px">
           <label style="color: red;">네트워크 오류</label>
@@ -43,9 +43,11 @@ export default {
       if (self.$route.name === 'login') return;
 
       self.network.open = !status;
-      if (!status) {
+      if (self.$route.name !== 'main' && !status) {
         self.$router.push({ name: 'main' });
       }
+      // if (!status) {
+      // }
     });
   },
   onIdle() {
