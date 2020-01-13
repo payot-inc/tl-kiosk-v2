@@ -44,23 +44,20 @@ function createWindow() {
   });
 }
 
-const gotTheLock = app.requestSingleInstanceLock()
+var shouldQuit = app.makeSingleInstance(function(commandLine, workingDirectory) {
+  // Someone tried to run a second instance, we should focus our window.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore();
+    myWindow.focus();
+  }
+});
 
-if (!gotTheLock) {
-  app.quit()
-  app.exit();
-} else {
-  app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (mainWindow) {
-      if (mainWindow.isMinimized()) mainWindow.restore()
-      mainWindow.focus()
-    }
-  })
-
-  // Create mainWindow, load the rest of the app, etc...
-  app.on('ready', createWindow);
+if (shouldQuit) {
+  app.quit();
+  return;
 }
+
+app.on('ready', createWindow);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
