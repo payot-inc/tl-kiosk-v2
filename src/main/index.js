@@ -21,10 +21,11 @@ function createWindow() {
    * Initial window options
    */
   mainWindow = new BrowserWindow({
-    height: 1920,
-    width: 1080,
+    fullscreen: true,
+    // height: 1920,
+    // width: 1080,
     kiosk: true,
-    // alwaysOnTop: true,
+    alwaysOnTop: true,
   });
 
   mainWindow.loadURL(winURL);
