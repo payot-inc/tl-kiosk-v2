@@ -42,14 +42,10 @@
                 </div>
                 <div class="card_point point" v-if="options.isCard">
                   <span class="name">카드 추가적립({{ options.card / 100 | persentFormat }})</span>
-                  <!-- <span class="num point1">{{ p | priceFormat }}P</span> -->
-                  <!-- <span class="add">+</span> -->
                   <span class="num point2">{{ (options.card / 100) * p | priceFormat }}P</span>
                 </div>
                 <div class="coin_point point">
                   <span class="name">현금 추가적립({{ options.cash / 100 | persentFormat }})</span>
-                  <!-- <span class="num point1">{{ p | priceFormat }}P</span> -->
-                  <!-- <span class="add">+</span> -->
                   <span class="num point2">{{ (options.cash) / 100 * p | priceFormat }}P</span>
                 </div>
               
